@@ -2,26 +2,7 @@
   "title": "Todo Full",
   "allOf": [
     {
-      "title": "Todo Partial",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "completed": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "name",
-        "completed"
-      ],
-      "x-tags": [
-        "Todos"
-      ]
+      "$ref": "https://sales.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/models/todo-partial.v1.json&mid=41"
     },
     {
       "type": "object",
@@ -45,34 +26,14 @@
         "updated_at": {
           "type": "string",
           "format": "date-time"
-        },
-        "user": {
-          "title": "User",
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "The user's full name."
-            },
-            "age": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 150
-            }
-          },
-          "required": [
-            "name",
-            "age"
-          ],
-          "x-tags": [
-            "Todos"
-          ]
         }
       },
       "required": [
-        "id",
-        "user"
+        "id"
       ]
+    },
+    {
+      "$ref": "https://sales.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/models/user.v1.json&mid=42"
     }
   ],
   "x-tags": [
