@@ -152,24 +152,24 @@
         ],
         "responses": {
           "204": {
-            "description": ""
+            "description": "No Content - Item deleted successfully!"
           },
           "401": {
             "description": "401 Unauthorized ",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           }
         },
@@ -193,7 +193,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-partial.v1.json&mid=2"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5"
             }
           }
         ],
@@ -201,7 +201,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-full.v2.json&mid=1"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
             },
             "examples": {
               "application/json": {
@@ -217,45 +217,13 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           }
         },
@@ -278,7 +246,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-full.v2.json&mid=1"
+                "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
               }
             },
             "examples": {
@@ -309,7 +277,7 @@
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
             }
           }
         },
