@@ -1,8 +1,11 @@
 {
   "title": "User",
   "type": "object",
+  "x-tags": [
+    "Todos"
+  ],
   "properties": {
-    "name": {
+    "username": {
       "type": "string",
       "description": "The user's full name."
     },
@@ -13,10 +16,7 @@
     }
   },
   "required": [
-    "name",
+    "username",
     "age"
-  ],
-  "x-tags": [
-    "Todos"
   ]
 }

@@ -3,7 +3,9 @@
   "allOf": [
     {
       "title": "Todo Partial",
-      "type": "object",
+      "x-tags": [
+        "Todos"
+      ],
       "properties": {
         "name": {
           "type": "string"
@@ -18,13 +20,9 @@
       "required": [
         "name",
         "completed"
-      ],
-      "x-tags": [
-        "Todos"
       ]
     },
     {
-      "type": "object",
       "properties": {
         "id": {
           "type": "integer",
@@ -49,8 +47,15 @@
         "user": {
           "title": "User",
           "type": "object",
+          "x-tags": [
+            "Todos"
+          ],
+          "required": [
+            "username",
+            "age"
+          ],
           "properties": {
-            "name": {
+            "username": {
               "type": "string",
               "description": "The user's full name."
             },
@@ -59,14 +64,7 @@
               "minimum": 0,
               "maximum": 150
             }
-          },
-          "required": [
-            "name",
-            "age"
-          ],
-          "x-tags": [
-            "Todos"
-          ]
+          }
         }
       },
       "required": [
@@ -78,5 +76,6 @@
   "x-tags": [
     "Todos"
   ],
-  "description": "Used by List Todo operations."
+  "description": "Used by List Todo operations.",
+  "type": "object"
 }

@@ -74,45 +74,13 @@
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           }
         },
@@ -153,67 +121,19 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           }
         },
@@ -237,67 +157,19 @@
           "401": {
             "description": "401 Unauthorized ",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           }
         },
@@ -321,26 +193,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "title": "Todo Partial",
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "completed": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "completed"
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-partial.v1.json&mid=2"
             }
           }
         ],
@@ -348,85 +201,7 @@
           "201": {
             "description": "",
             "schema": {
-              "title": "Todo Full",
-              "allOf": [
-                {
-                  "title": "Todo Partial",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "completed": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "completed"
-                  ],
-                  "x-tags": [
-                    "Todos"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "minimum": 0,
-                      "maximum": 1000000
-                    },
-                    "completed_at": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "date-time"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "user": {
-                      "title": "User",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The user's full name."
-                        },
-                        "age": {
-                          "type": "number",
-                          "minimum": 0,
-                          "maximum": 150
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "age"
-                      ],
-                      "x-tags": [
-                        "Todos"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "user"
-                  ]
-                }
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-full.v2.json&mid=1"
             },
             "examples": {
               "application/json": {
@@ -503,85 +278,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Todo Full",
-                "allOf": [
-                  {
-                    "title": "Todo Partial",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "completed": {
-                        "type": [
-                          "boolean",
-                          "null"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "name",
-                      "completed"
-                    ],
-                    "x-tags": [
-                      "Todos"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "maximum": 1000000
-                      },
-                      "completed_at": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "format": "date-time"
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "updated_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "user": {
-                        "title": "User",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The user's full name."
-                          },
-                          "age": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 150
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "age"
-                        ],
-                        "x-tags": [
-                          "Todos"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "user"
-                    ]
-                  }
-                ],
-                "x-tags": [
-                  "Todos"
-                ]
+                "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-full.v2.json&mid=1"
               }
             },
             "examples": {
@@ -612,23 +309,7 @@
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           }
         },
