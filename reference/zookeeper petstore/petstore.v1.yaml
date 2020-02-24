@@ -10,7 +10,7 @@ info:
     email: apiteam@petstore.io
     url: 'http://petstore.io'
   termsOfService: 'http://petstore.io/terms/'
-  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification
+  description: A sample API that uses a petstore as an example to demonstrate features in the OpenAPI 3.0 specification.
 servers:
   - url: 'http://petstore.io/api'
 paths:
