@@ -32,13 +32,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./models/pet.v1.yaml
+                $ref: ../models/zookeeper petstore/pet.v1.yaml
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: ./models/error.v1.yaml
+                $ref: ../models/zookeeper petstore/error.v1.yaml
       summary: ''
     delete:
       description: deletes a single pet based on the ID supplied
@@ -59,7 +59,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./models/error.v1.yaml
+                $ref: ../models/zookeeper petstore/error.v1.yaml
   /pets:
     get:
       description: Returns all pets from the system that the user has access to.
@@ -89,13 +89,13 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ./models/pet.v1.yaml
+                  $ref: ../models/zookeeper petstore/pet.v1.yaml
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: ./models/error.v1.yaml
+                $ref: ../models/zookeeper petstore/error.v1.yaml
     post:
       description: Creates a new pet in the store. Duplicates are allowed
       operationId: addPet
@@ -105,17 +105,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: ./models/newpet.v1.yaml
+              $ref: ../models/zookeeper petstore/newpet.v1.yaml
       responses:
         '200':
           description: pet response
           content:
             application/json:
               schema:
-                $ref: ./models/pet.v1.yaml
+                $ref: ../models/zookeeper petstore/pet.v1.yaml
         default:
           description: unexpected error
           content:
             application/json:
               schema:
-                $ref: ./models/error.v1.yaml
+                $ref: ../models/zookeeper petstore/error.v1.yaml
