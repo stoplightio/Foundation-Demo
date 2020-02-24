@@ -58,7 +58,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "../models/todos/todo-full.v2.json"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/todos/models/todo-full.v2.json&mid=1"
             },
             "examples": {
               "application/json": {
@@ -74,45 +74,13 @@
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/zookeeper+petstore/models/error.v1.yaml&mid=3"
             }
           }
         },
@@ -156,7 +124,9 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Todo Full",
+              "x-tags": [
+                "Todos"
+              ],
               "allOf": [
                 {
                   "title": "Todo Partial",
@@ -232,9 +202,7 @@
                   ]
                 }
               ],
-              "x-tags": [
-                "Todos"
-              ]
+              "title": "Todo Full"
             },
             "examples": {
               "application/json": {
@@ -250,9 +218,12 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
+              "x-tags": [
+                "Common"
+              ],
+              "required": [
+                "code"
+              ],
               "properties": {
                 "code": {
                   "type": "string"
@@ -261,20 +232,20 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "description": "A standard error object.",
+              "type": "object",
+              "title": "Error"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
+              "x-tags": [
+                "Common"
+              ],
+              "required": [
+                "code"
+              ],
               "properties": {
                 "code": {
                   "type": "string"
@@ -283,20 +254,20 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "description": "A standard error object.",
+              "type": "object",
+              "title": "Error"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
+              "x-tags": [
+                "Common"
+              ],
+              "required": [
+                "code"
+              ],
               "properties": {
                 "code": {
                   "type": "string"
@@ -305,12 +276,9 @@
                   "type": "string"
                 }
               },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "description": "A standard error object.",
+              "type": "object",
+              "title": "Error"
             }
           }
         },
