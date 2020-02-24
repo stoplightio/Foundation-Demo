@@ -1,0 +1,10 @@
+title: pet
+allOf:
+  - $ref: ./newpet.v1.yaml
+  - type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+    required:
+      - id
