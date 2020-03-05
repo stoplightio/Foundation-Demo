@@ -58,7 +58,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7&deref=bundle"
+              "$ref": "../models/todos/todo-full.v2.json"
             },
             "examples": {
               "application/json": {
