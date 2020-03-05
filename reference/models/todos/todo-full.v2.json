@@ -2,7 +2,7 @@
   "title": "Todo Full",
   "allOf": [
     {
-      "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5"
+      "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5&deref=bundle"
     },
     {
       "type": "object",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/user.v1.json&mid=6"
+      "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/user.v1.json&mid=6&deref=bundle"
     }
   ],
   "x-tags": [

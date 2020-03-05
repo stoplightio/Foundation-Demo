@@ -58,7 +58,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7&deref=bundle"
             },
             "examples": {
               "application/json": {
@@ -74,13 +74,13 @@
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           }
         },
@@ -97,7 +97,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5&deref=bundle"
             }
           }
         ],
@@ -105,7 +105,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7&deref=bundle"
             },
             "examples": {
               "application/json": {
@@ -121,19 +121,19 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           }
         },
@@ -157,19 +157,19 @@
           "401": {
             "description": "401 Unauthorized ",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/zookeeper+petstore/error.v1.yaml&mid=8&deref=bundle"
             }
           }
         },
@@ -193,7 +193,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-partial.v1.json&mid=5&deref=bundle"
             }
           }
         ],
@@ -201,7 +201,7 @@
           "201": {
             "description": "",
             "schema": {
-              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
+              "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7&deref=bundle"
             },
             "examples": {
               "application/json": {
@@ -246,7 +246,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "https://demo.stoplight-dev.com/api/nodes.raw?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7"
+                "$ref": "https://demo.stoplight-dev.com/api/nodes.raw/?srn=gh/stoplightio/foundation-demo/reference/models/todos/todo-full.v2.json&mid=7&deref=bundle"
               }
             },
             "examples": {
