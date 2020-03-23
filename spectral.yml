@@ -1,4 +1,9 @@
+formats:
+  - oas2
+  - oas3
+
 extends:
+  - 'spectral:oas'
   - ./apisyouwonthate.yml
   - ./openapi.yml
   - ./fhir.yml
