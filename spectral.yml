@@ -1,0 +1,5 @@
+extends:
+  - ./apisyouwonthate.yml
+  - ./openapi.yml
+  - ./fhir.yml
+rules: {}

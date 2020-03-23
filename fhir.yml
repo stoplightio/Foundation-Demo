@@ -1,0 +1,67 @@
+rules:
+  fhir-type-pascal-case:
+    description: 'FHIR "types" must be PascalCase'
+    message: '{{property}} is not PascalCase: {{error}}'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$.paths[*]~'
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(\\/)?[A-Z][a-zA-Z0-9]*(\\/)?"
+  fhir-use-ssl:
+    description: FHIR preffers SSL for servers
+    message: '{{property}} does not contain https'
+    severity: warn
+    recommended: true
+    format: oas2
+    given: $.schemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            const: https
+  fhir-consume-mime-types:
+    description: 'FHIR mime-type must be application/fhir+(xml|json|turtle) or application/x-www-form-urlencoded for `search` endpoints'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$..consumes.*'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: string
+          enum:
+            - application/fhir+xml
+            - application/fhir+json
+            - application/fhir+turtle
+            - application/x-www-form-urlencoded
+  fhir-produces-mime-types:
+    description: 'FHIR mime-type must be application/fhir+(xml|json|turtle)'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$..produces.*'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: string
+          enum:
+            - application/fhir+xml
+            - application/fhir+json
+            - application/fhir+turtle
+  fhir-spec-v4:
+    description: FHIR v4.0 is the prefered version
+    severity: warn
+    recommended: true
+    format: oas2
+    given: $..headers.Accept
+    then:
+      function: pattern
+      functionOptions:
+        match: '^.*; fhirVersion=4'
