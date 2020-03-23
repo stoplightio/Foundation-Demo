@@ -3,15 +3,271 @@ formats:
   - oas3
 extends:
   - 'spectral:oas'
+
 rules:
-  info-matches-stoplight:
-    description: This is an example rule
-    message: Info must contain Stoplight
-    given: $.info
+
+# These rules will be helping the OpenAPI people write be better quality, but 
+# have no thoughts on the actual contents of the API
+
+# TODO
+
+# example xor examples, cant have both
+
+# no new lines in response descriptions... \n
+
+# You have 100 properties in this model, maybe split this model down (resolved?)
+
+  # Keep summary short and sweet for ReDoc and similar tooling
+  operation-short-summary: 
+    description: "Operation summary should be short and sweet, no full stops, and less than 20 characters"
+    recommended: true
+    type: "style"
+    given: "$.paths.*[?( @property === 'get' || @property === 'put' || @property === 'post' || @property === 'delete' || @property === 'options' || @property === 'head' || @property === 'patch' || @property === 'trace' )]"
+    then:
+      - field: summary
+        function: pattern
+        functionOptions:
+          notMatch: "\\."
+      - field: summary
+        function: length
+        functionOptions:
+          max: 20
+
+  # A common convention for schema names is PascalCase
+  schema-names-pascal-case:
+    description: Schema names MUST be written in PascalCase
+    message: '{{property}} is not PascalCase: {{error}}'
     recommended: true
     type: style
+    given: '$.components.schemas.*~'
     then:
-      field: title
       function: pattern
       functionOptions:
-        match: Stoplight
+        match: '^[A-Z][a-zA-Z0-9]*$'
+
+  # Keep operationIds (which often go in the URL) as kebab case
+  operationIds-kebab-case:
+    description: Operation IDs MUST be written in kebab-case
+    message: '{{property}} is not kebab-case: {{error}}'
+    recommended: true
+    type: style
+    given: "$.paths.*[?( @property === 'get' || @property === 'put' || @property === 'post' || @property === 'delete' || @property === 'options' || @property === 'head' || @property === 'patch' || @property === 'trace' )]"
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: "^([a-z0-9-]+)$"
+
+  # Don't make people guess about what your parameters are
+  parameter-description:
+    description: Parameters must have a description.
+    recommended: true
+    given: '$..properties.*'
+    then:
+      field: description
+      function: truthy
+
+# These rules dictate actual content of the API: headers, URL conventions, and general 
+# Good Ideas™ for HTTP APIs, mainly from the books/blogs on apisyouwonthate.com
+
+# TODO
+
+# Make sure every post/put/delete/patch endpoint has some sort of security
+# (OAuth 2, API Key, but not both)
+
+# Numeric IDs are awful, use a UUID
+
+# No global version in url or header 
+
+# Correct error response format (JSO:API or RFC 7807)
+
+# Mime type should have "; charset=utf-8"
+
+# No path defined for /
+
+# No "(e/E)rror" in 2xx
+
+# If a DELETE method is successfully applied, the origin server SHOULD
+#    send a 202 (Accepted) status code if the action will likely succeed
+#    but has not yet been enacted, a 204 (No Content) status code if the
+#    action has been enacted and no further information is to be supplied,
+#    or a 200 (OK) status code if the action has been enacted and the
+#    response message includes a representation describing the status.
+
+# header-parameter-names-kebab-case': {
+#    given: "$..parameters[?(@.in === 'header')]",
+
+  paths-kebab-case:
+      description: Should paths be kebab-case.
+      message: '{{property}} is not kebab-case: {{error}}'
+      severity: warn
+      recommended: true
+      given: $.paths[*]~
+      then:
+        function: pattern
+        functionOptions:
+          match: "^(\/[a-z0-9-{}]+)+$"
+
+  no-x-headers:
+    description: "Please do not use headers with X-"
+    message: "Headers cannot start with X-, so please find a new name for {{property}}. More: https://tools.ietf.org/html/rfc6648"
+    recommended: true
+    type: style
+    # TODO add encoding headers too "$..content.*.encoding.*.headers"
+    given: "$..parameters.[?(@.in === 'header')].name"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '^(x|X)-'
+
+  # Author: Andrzej (https://github.com/jerzyn)
+  oas2-hosts-https-only:
+    description: "ALL requests MUST go through `https` protocol only"
+    recommended: true
+    severity: error
+    formats: [oas2]
+    type: "style"
+    message: "Schemes MUST be https and no other value is allowed."
+    given: $.schemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          items:
+            type: string
+            enum: ["https"]
+          maxItems: 1
+          
+  # Author: Andrzej (https://github.com/jerzyn)
+  request-GET-no-body:
+    description: A `GET` request MUST NOT accept a `body` parameter
+    severity: error
+    recommended: true
+    given: $.paths..get.parameters..in
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/^body$/"
+
+  # Author: Andrzej (https://github.com/jerzyn)
+  headers-hyphenated-pascal-case:
+    description: All `HTTP` headers MUST use `Hyphenated-Pascal-Case` notation
+    severity: error
+    given: "$..parameters[?(@.in == 'header')].name"
+    message: "'HTTP' headers MUST follow 'Hyphenated-Pascal-Case' notation"
+    recommended: true
+    type: style
+    then: 
+      function: pattern
+      functionOptions:
+        match: "/^([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/"
+
+  # Author: Andrzej (https://github.com/jerzyn)
+  oas3-hosts-https-only:
+    description: "ALL requests MUST go through `https` protocol only"
+    formats:
+      - oas3
+    recommended: true
+    severity: error
+    message: "Servers MUST be https and no other protocol is allowed."
+    given: $.servers..url
+    then:
+      function: pattern
+      functionOptions:
+        match: "/^https:/"
+  
+  # Author: Andrzej (https://github.com/jerzyn)
+  oas3-request-support-json:
+    description: Every request SHOULD support `application/json` media type
+    formats:
+      - oas3
+    recommended: true
+    severity: warn
+    message: "{{description}}: {{error}}"
+    given: $.paths.[*].requestBody.content[?(@property.indexOf('json') === -1)]^
+    then:
+      function: falsy
+
+# Very early stages of implementing a bunch of FHIR rules:
+#
+#   http://hl7.org/fhir/http.html#general
+
+# "FHIR is described as a 'RESTful' specification based on common industry level
+#  use of the term REST. In practice, FHIR only supports Level 2 of the REST
+#  Maturity model as part of the core specification, though full Level 3
+#  conformance is possible through the use of extensions. Because FHIR is a
+#  standard, it relies on the standardization of resource structures and
+#  interfaces. This may be considered a violation of REST principles but is key to
+#  ensuring consistent interoperability across diverse systems."
+
+  fhir-type-pascal-case:
+    description: 'FHIR "types" must be PascalCase'
+    message: '{{property}} is not PascalCase: {{error}}'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$.paths[*]~'
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(\\/)?[A-Z][a-zA-Z0-9]*(\\/)?"
+
+  fhir-use-ssl:
+    description: FHIR preffers SSL for servers
+    message: '{{property}} does not contain https'
+    severity: warn
+    recommended: true
+    format: oas2
+    given: $.schemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            const: https
+
+  fhir-consume-mime-types:
+    description: 'FHIR mime-type must be application/fhir+(xml|json|turtle) or application/x-www-form-urlencoded for `search` endpoints'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$..consumes.*'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: string
+          enum:
+            - application/fhir+xml
+            - application/fhir+json
+            - application/fhir+turtle
+            - application/x-www-form-urlencoded
+
+  fhir-produces-mime-types:
+    description: 'FHIR mime-type must be application/fhir+(xml|json|turtle)'
+    severity: error
+    recommended: true
+    format: oas2
+    given: '$..produces.*'
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: string
+          enum:
+            - application/fhir+xml
+            - application/fhir+json
+            - application/fhir+turtle
+            
+  fhir-spec-v4:
+    description: FHIR v4.0 is the prefered version
+    severity: warn
+    recommended: true
+    format: oas2
+    given: $..headers.Accept
+    then:
+      function: pattern
+      functionOptions:
+        match: '^.*; fhirVersion=4'
