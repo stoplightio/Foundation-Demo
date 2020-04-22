@@ -87,7 +87,7 @@
         "description": "Get information on a todo item."
       },
       "put": {
-        "operationId": "",
+        "operationId": "Todo_put_opid",
         "summary": "Update Todo",
         "tags": [
           "Todos"
@@ -178,7 +178,7 @@
             "apikey": []
           }
         ],
-        "description": ""
+        "description": "Delete Todo"
       }
     },
     "/todos": {
