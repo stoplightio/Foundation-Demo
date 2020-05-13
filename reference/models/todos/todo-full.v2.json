@@ -26,9 +26,6 @@
         "updated_at": {
           "type": "string",
           "format": "date-time"
-        },
-        "name": {
-          "type": "string"
         }
       },
       "required": [
