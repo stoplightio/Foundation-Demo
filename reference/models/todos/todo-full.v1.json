@@ -2,27 +2,10 @@
   "title": "Todo Full",
   "allOf": [
     {
-      "title": "Todo Partial",
-      "x-tags": [
-        "Todos"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "completed": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        }
-      },
-      "required": [
-        "name",
-        "completed"
-      ]
+      "$ref": "./todo-partial.v1.json"
     },
     {
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer",
@@ -43,39 +26,18 @@
         "updated_at": {
           "type": "string",
           "format": "date-time"
-        },
-        "user": {
-          "title": "User",
-          "type": "object",
-          "x-tags": [
-            "Todos"
-          ],
-          "required": [
-            "username",
-            "age"
-          ],
-          "properties": {
-            "username": {
-              "type": "string",
-              "description": "The user's full name."
-            },
-            "age": {
-              "type": "number",
-              "minimum": 0,
-              "maximum": 150
-            }
-          }
         }
       },
       "required": [
-        "id",
-        "user"
+        "id"
       ]
+    },
+    {
+      "$ref": "./user.v1.json"
     }
   ],
   "x-tags": [
     "Todos"
   ],
-  "description": "Used by List Todo operations.",
-  "type": "object"
+  "description": "Used by List Todos operations."
 }

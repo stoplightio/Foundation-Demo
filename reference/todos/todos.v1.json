@@ -58,85 +58,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Todo Full",
-              "allOf": [
-                {
-                  "title": "Todo Partial",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "completed": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "completed"
-                  ],
-                  "x-tags": [
-                    "Todos"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "minimum": 0,
-                      "maximum": 1000000
-                    },
-                    "completed_at": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "date-time"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "user": {
-                      "title": "User",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The user's full name."
-                        },
-                        "age": {
-                          "type": "number",
-                          "minimum": 0,
-                          "maximum": 150
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "age"
-                      ],
-                      "x-tags": [
-                        "Todos"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "user"
-                  ]
-                }
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "../models/todos/todo-full.v1.json"
             },
             "examples": {
               "application/json": {
@@ -152,52 +74,20 @@
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           }
         },
         "description": "Get information on a todo item."
       },
       "put": {
-        "operationId": "PUT_todos",
+        "operationId": "",
         "summary": "Update Todo",
         "tags": [
           "Todos"
@@ -207,26 +97,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "title": "Todo Partial",
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "completed": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "completed"
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "../models/todos/todo-partial.v1.json"
             }
           }
         ],
@@ -234,85 +105,7 @@
           "200": {
             "description": "",
             "schema": {
-              "title": "Todo Full",
-              "allOf": [
-                {
-                  "title": "Todo Partial",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "completed": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "completed"
-                  ],
-                  "x-tags": [
-                    "Todos"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "minimum": 0,
-                      "maximum": 1000000
-                    },
-                    "completed_at": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "date-time"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "user": {
-                      "title": "User",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The user's full name."
-                        },
-                        "age": {
-                          "type": "number",
-                          "minimum": 0,
-                          "maximum": 150
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "age"
-                      ],
-                      "x-tags": [
-                        "Todos"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "user"
-                  ]
-                }
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "../models/todos/todo-full.v1.json"
             },
             "examples": {
               "application/json": {
@@ -328,67 +121,19 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           }
         },
@@ -407,72 +152,24 @@
         ],
         "responses": {
           "204": {
-            "description": ""
+            "description": "No Content - Item deleted successfully!"
           },
           "401": {
             "description": "401 Unauthorized ",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "404": {
             "description": "404 Not Found",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           }
         },
@@ -481,7 +178,7 @@
             "apikey": []
           }
         ],
-        "description": "Remove a todo item."
+        "description": ""
       }
     },
     "/todos": {
@@ -496,26 +193,7 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "title": "Todo Partial",
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "completed": {
-                  "type": [
-                    "boolean",
-                    "null"
-                  ]
-                }
-              },
-              "required": [
-                "name",
-                "completed"
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "../models/todos/todo-partial.v1.json"
             }
           }
         ],
@@ -523,85 +201,7 @@
           "201": {
             "description": "",
             "schema": {
-              "title": "Todo Full",
-              "allOf": [
-                {
-                  "title": "Todo Partial",
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "completed": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "completed"
-                  ],
-                  "x-tags": [
-                    "Todos"
-                  ]
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "integer",
-                      "minimum": 0,
-                      "maximum": 1000000
-                    },
-                    "completed_at": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "date-time"
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time"
-                    },
-                    "user": {
-                      "title": "User",
-                      "type": "object",
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The user's full name."
-                        },
-                        "age": {
-                          "type": "number",
-                          "minimum": 0,
-                          "maximum": 150
-                        }
-                      },
-                      "required": [
-                        "name",
-                        "age"
-                      ],
-                      "x-tags": [
-                        "Todos"
-                      ]
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "user"
-                  ]
-                }
-              ],
-              "x-tags": [
-                "Todos"
-              ]
+              "$ref": "../models/todos/todo-full.v1.json"
             },
             "examples": {
               "application/json": {
@@ -617,45 +217,13 @@
           "401": {
             "description": "401 Unauthorized",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           }
         },
@@ -678,89 +246,11 @@
             "schema": {
               "type": "array",
               "items": {
-                "title": "Todo Full",
-                "allOf": [
-                  {
-                    "title": "Todo Partial",
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "type": "string"
-                      },
-                      "completed": {
-                        "type": [
-                          "boolean",
-                          "null"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "name",
-                      "completed"
-                    ],
-                    "x-tags": [
-                      "Todos"
-                    ]
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "maximum": 1000000
-                      },
-                      "completed_at": {
-                        "type": [
-                          "string",
-                          "null"
-                        ],
-                        "format": "date-time"
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "updated_at": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "user": {
-                        "title": "User",
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "type": "string",
-                            "description": "The user's full name."
-                          },
-                          "age": {
-                            "type": "number",
-                            "minimum": 0,
-                            "maximum": 150
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "age"
-                        ],
-                        "x-tags": [
-                          "Todos"
-                        ]
-                      }
-                    },
-                    "required": [
-                      "id",
-                      "user"
-                    ]
-                  }
-                ],
-                "x-tags": [
-                  "Todos"
-                ]
+                "$ref": "../models/todos/todo-full.v1.json"
               }
             },
             "examples": {
-              "application/json": [
+              "Multiple": [
                 {
                   "id": 1,
                   "name": "design the thingz",
@@ -776,29 +266,18 @@
                   "name": "code the thingz",
                   "completed": false
                 }
-              ]
+              ],
+              "Single": {
+                "id": 31,
+                "name": "call home",
+                "completed": true
+              }
             }
           },
           "500": {
             "description": "500 Internal Server Error",
             "schema": {
-              "title": "Error",
-              "type": "object",
-              "description": "A standard error object.",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "code"
-              ],
-              "x-tags": [
-                "Common"
-              ]
+              "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
           }
         },
