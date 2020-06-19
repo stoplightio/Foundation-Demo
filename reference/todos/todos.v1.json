@@ -58,7 +58,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "../models/todos/todo-full.v1.json"
+              "$ref": "https://apiguild.stoplight.io/api/v1/projects/apiguild/enterprise-schemas/nodes/todo-full.v1.json?deref=all&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3N0b3BsaWdodC5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6Im5vZGVfZXhwb3J0IiwieC1oYXN1cmEtYWxsb3dlZC1yb2xlcyI6WyJub2RlX2V4cG9ydCJdLCJ4LWhhc3VyYS1icmFuY2gtbm9kZS1pZCI6IjE4NDExNCJ9LCJpYXQiOjE1OTI1MzM3NjAsImV4cCI6MTU5Mjk2NTc2MCwiaXNzIjoic3RvcGxpZ2h0Iiwic3ViIjoiL3VzZXJzL2JvdCJ9.yK8XZ9aNvYKh5jRDreDTHtui1DBRZKecDPcB-cg-DgI"
             },
             "examples": {
               "application/json": {
