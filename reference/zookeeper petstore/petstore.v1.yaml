@@ -40,6 +40,8 @@ paths:
               schema:
                 $ref: ../models/zookeeper petstore/error.v1.yaml
       summary: ''
+      tags:
+        - Pets
     delete:
       description: deletes a single pet based on the ID supplied
       operationId: deletePet
@@ -119,3 +121,5 @@ paths:
             application/json:
               schema:
                 $ref: ../models/zookeeper petstore/error.v1.yaml
+tags:
+  - name: Pets
