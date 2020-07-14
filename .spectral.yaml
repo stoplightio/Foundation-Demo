@@ -7,7 +7,7 @@ extends:
 rules:
 
 # These rules will be helping the OpenAPI people write be better quality, but 
-# have no thoughts on the actual contents of the API
+# have no thoughts on the actual contents of the API.
 
 # TODO
 
