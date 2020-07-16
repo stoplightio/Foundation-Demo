@@ -78,7 +78,7 @@
             }
           },
           "500": {
-            "description": "500 Internal Server Error",
+            "description": "Internal Server Error",
             "schema": {
               "$ref": "../models/zookeeper petstore/error.v1.yaml"
             }
