@@ -84,7 +84,7 @@
             }
           }
         },
-        "description": "Get information on a todo item."
+        "description": "Get information on a todo item!"
       },
       "put": {
         "operationId": "",
