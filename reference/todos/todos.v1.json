@@ -298,6 +298,22 @@
           }
         ]
       }
+    },
+    "/foo": {
+      "get": {
+        "summary": "get foo",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "operationId": "get-foo"
+      }
     }
   }
 }
