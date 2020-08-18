@@ -17,7 +17,7 @@ rules:
 
 # You have 100 properties in this model, maybe split this model down (resolved?)
 
-  # Keep summary short and sweet for ReDoc and similar tooling
+  # Keep summary short and sweet
   operation-short-summary: 
     description: "Operation summary should be short and sweet, no full stops, and less than 20 characters"
     recommended: true
@@ -272,7 +272,6 @@ rules:
       functionOptions:
         match: '^.*; fhirVersion=4'
 
-
 # Adidas Rulesets
 
   adidas-paths-camelCase:
@@ -418,38 +417,6 @@ rules:
   #     function: falsy
   # "$..parameters..[?(@.in == 'body')]..[?(@property !== 'properties' && @.example && ( @.type || @.format || @.$ref ))]"
 
-  adidas-oas2-response-success-hal: # schemes and/or produces
-    description: "All success responses MUST be of media type `application/hal+json`"
-    severity: error
-    given: $.paths..responses[?( @property >= 200 && @property < 300 && @property != 204)]
-    recommended: true
-    type: "style"
-    formats:
-      - oas2
-    message: "Response documents MUST follow application/hal+json: {{error}}"
-    then:
-      field: schema
-      function: schema
-      functionOptions:
-        schema:
-          $ref: "./supermodel/adidas/api/HAL.yaml"
-
-  adidas-oas2-response-error-problem: # schemas and/or produces
-    description: All error responses MUST be of media type `application/problem+json`
-    severity: error
-    formats:
-      - oas2
-    given: $.paths..responses[?( @property >= 400 && @property < 600 )]
-    recommended: true
-    type: "style"
-    message: "Error response document MUST follow application/problem+json: {{error}}"
-    then:
-      field: schema.example
-      function: schema
-      functionOptions:
-        schema:
-          $ref: "./supermodel/adidas/api/ProblemDetail.yaml"
-
   # ---------------------------------------------------------------------------
   # Only OAS3 rules
   # ---------------------------------------------------------------------------
@@ -524,22 +491,6 @@ rules:
       functionOptions:
         values:
           - application/hal+json
-          
-  adidas-oas3-response-success-hal-body: # schemes and/or produces
-    description: "All success responses MUST follow `application/hal+json` schema"
-    severity: error
-    given: $.paths..responses[?( @property >= 200 && @property < 300 && @property != 204)].content[?(@property === "application/hal+json")]
-    recommended: true
-    type: "style"
-    formats:
-      - oas3
-    message: "Response documents MUST follow application/hal+json schema: {{error}}"
-    then:
-      field: schema
-      function: schema
-      functionOptions:
-        schema:
-          $ref: "./supermodel/adidas/api/HAL.yaml"
     
 
   # ---------------------------------------------------------------------------
