@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Documents
+  version: '1.0'
+  description: |-
+    The Document object represents a document uploaded to and hosted on Fiserv's systems. A file can be uploaded by using the create document endpoint.
+    In some instances a file is created by customers uploading documents that may be used as part of a KYC process.
+servers: []
+paths:
+  /documents:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      operationId: get-documents
+      description: |-
+        Returns a list of all documents for which your account has access to.
+        To download the file access the `url` attibute.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+              examples: {}
+    post:
+      summary: ''
+      operationId: post-documents
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+      description: This creates a document which is stored on Fiservs servers for future use.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  description: The file data in UTF128 Base64 encoding
+                  example: TWF0dGhldyBMb2NreWVyIA==
+                purpose:
+                  type: string
+                  description: Specify the purpose of the document
+                  enum:
+                    - Proof of Address
+                    - Bank Account
+              required:
+                - file
+                - purpose
+            examples:
+              Post example:
+                value:
+                  file: TWF0dGhldyBMb2NreWVyIA==
+                  purpose: Proof of Address
+        description: |-
+          Encode the file into UTF128 Base64 and include it in the file field of the request.
+          In the request attach the document as well as any metadata which needs to be associated with it
+components:
+  schemas:
+    Document:
+      title: The document object
+      type: object
+      x-examples:
+        Examples Response:
+          id: 85b86de2-e91e-11ea-adc1-0242ac120002
+          purpose: Proof of Identity
+          type: PDF
+          created: '2019-08-24T14:15:22Z'
+          filename: proofOfAddress
+          size: 1234567
+          description: This is the description of the file.
+      x-tags:
+        - Models
+      description: The document object represents a file which has been uploaded to Fiserv
+      properties:
+
+        id:
+
+          type: string
+
+          example: 85b86de2-e91e-11ea-adc1-0242ac120002
+
+          description: Unique identifier for the document.
+
+          x-faker: random.uuid
+
+          format: uuid
+
+          pattern: '^([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}$'
+
+        purpose:
+
+          type: string
+
+          description: The type of document being uploaded.
+
+          enum:
+
+            - Proof of Identity
+
+            - Bank Account
+
+        type:
+
+          type: string
+
+          description: The file type.
+
+          enum:
+
+            - PDF
+
+            - DOCX
+
+            - PNG
+
+            - JPG
+
+        created:
+
+          type: string
+
+          description: The timestamp when the document was created.
+
+          format: date-time
+
+          pattern: '^([0-9]{4}[-/]?((0[13-9]|1[012])[-/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[-/]?31|02[-/]?(0[1-9]|1[0-9]|2[0-8]))|([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00)[-/]?02[-/]?29)(|T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d{1,9})?(?:Z|([+-][01]\\d:[0-5]\\d)?))$'
+
+        filename:
+
+          type: string
+
+          description: The name of the file name uploaded.
+
+          minLength: 5
+
+          maxLength: 30
+
+          pattern: '^[a-zA-Z0-9]{5,30}$'
+
+          example: proofOfAddress
+
+        size:
+
+          type: integer
+
+          format: int32
+
+          example: 1234567
+
+          description: Size of the file in bytes
+
+        description:
+
+          type: string
+
+          description: A description of the document uploaded.
+
+          example: This is the description of the file.
+
+          pattern: ^w+( +w+)*$
+
+      required:
+
+        - purpose
+
+  securitySchemes: {}
+
+tags:
+
+  - name: Documents
